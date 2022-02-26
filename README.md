@@ -8,7 +8,7 @@ An emergent design pattern based on Ancon Protocol, EIP-3668 and Account Abstrac
 
 There are already open source indexing tools like The Graph and TrueBlocks, which takes enough care of post processing of onchain events.
 
-Ancon Protocol does support indexing features, but one feature we recently cut off was mutable DAG blocks using PUT, because we required full verifiable signatures. In reimagining the problem from another point of view, if we take onchain events as the ultimate proof of truth, we can mutate DAGs similar to the previously implemented Rust WASM Contracts, but instead, taking cues from EIP Account Abstraction, **a relayer gets paid to execute a Javascript smart contract ** , these contracts compiled to JEXL or QuickJS WASM Containers.
+Ancon Protocol does support indexing features, but one feature we recently cut off was mutable DAG blocks using PUT, because we required full verifiable signatures. In reimagining the problem from another point of view, if we take onchain events as the ultimate proof of truth, we can mutate DAGs similar to the previously implemented Rust WASM Contracts, but instead, taking cues from EIP Account Abstraction, **a relayer gets paid to execute a Javascript smart contract** , these contracts compiled to JEXL or QuickJS WASM Containers.
 
 The result is a signed output, verifiable both offchain and onchain (if used with Ancon Protocol offchain signatures or EIP-3668).
 
