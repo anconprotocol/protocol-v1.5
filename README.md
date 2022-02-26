@@ -33,6 +33,7 @@ A DAG Chain redux is then made of:
 - Smart contracts build with security VM isolation using QuickJS and executed in either Javascript or WASM
 - Indexers listening for events to dispatch actions
 - Which represent a specific reducer, meaning, it takes the current DAG block and reduces it to other data transformation
+- Execution by an existing relayer takes care of payment fees, otherwise, an indexer must charge the execution fee directly.
 - The state is stored in an Ancon DAG Node, which internal Merkle Tree makes it ICS23 Proof ready, or using an EIP-3668 request response, be available for secure offchain requests.
 - Cycles repeats once again
 
