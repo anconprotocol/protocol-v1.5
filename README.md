@@ -1,9 +1,5 @@
 # Ancon Protocol v1.5-Distributed Data Client with Verifyable ICS-23 Vector Commitment Proof
 
-An emergent design pattern based on Ancon Protocol, EIP-3668 and Account Abstraction
-
-![DAG REDUX](https://user-images.githubusercontent.com/1248071/155858908-13282b5a-6612-4783-b9f3-9c4194f01ef3.svg)
-
 ## Abstract
 
 This document contains a proposal for managing the diverse set of technologies require to implement decentralize data unions using Ancon Protocol.
