@@ -1,17 +1,50 @@
-# dag-chain-redux
+# Ancon Protocol v1.5-Distributed Data Client with Verifyable ICS-23 Vector Commitment Proof
+
 An emergent design pattern based on Ancon Protocol, EIP-3668 and Account Abstraction
 
 ![DAG REDUX](https://user-images.githubusercontent.com/1248071/155858908-13282b5a-6612-4783-b9f3-9c4194f01ef3.svg)
 
-
 ## Abstract
+
+This document contains a proposal for managing the diverse set of technologies require to implement decentralize data unions using Ancon Protocol.
+
+We will explain the next version of the protocol, which includes removing the dependency of GraphSync, incorporating SQLlite APIs, Indexed DB, VFS and libp2p. Additionally we will include separating the Dag Storage Nodes, Indexers and Merkle Trees concesors in Tendermint or Polkadot.
+
+## Problem
+
+For the last 40 days the team has been working on implementing a use case for protocol v1 with great results and confirmations of the protocol choice of technology stack.
+
+However we left some pendings protocol features for later, which we assume was not going to be a blocker for implementing dapps as the initial plan. The following items are major paint points to consider:
+
+- Distributed Data Query
+- Incomplete Dag syncronization
+- Partial suppport for offchain computation
+- Dag Indexing, publishing and privacy
+
+### Distributed Data Query
+
+Previously, we propose Dag-chain-redux as a way to consolidate indexing using smart contracts events. While this will work in server side scenarios it does not cover client side or lite client nodes like Browsers or SmartPhones. It also does not have any compatability with for example enterprise ethereum trusted offchain computing expecification.
+
+### Incomplete Dag syncronization
+
+Currently Ancon Protocol v1 only synchronizes with IPFS pinning services. While Ancon Protocol is compatible with GraphGync it will only work for server side scenarios because the current GraphSync is only available with Go Language SDKs.
+
+### Partial suppport for offchain computation
+
+Ancol Protocol v1 + dag-chain-redux in its current iteration is implemented using JEXL which is an expressiong language for javascript.
+Idealy a complete feature will have to include QuickJs compile WASM artifacts and will have to be run in a specific client side node.
+
+### Dag Indexing, publishing and privacy
+
+Besides storage and computation a succesfull data union must include; Data indexing, Data Publishing, Security and Privacy controls which are nice to haves to the core protocol features.
+
+## Prior Work
 
 There are already open source indexing tools like The Graph and TrueBlocks, which takes enough care of post processing of onchain events.
 
-Ancon Protocol does support indexing features, but one feature we recently cut off was mutable DAG blocks using PUT, because we required full verifiable signatures. In reimagining the problem from another point of view, if we take onchain events as the ultimate proof of truth, we can mutate DAGs similar to the previously implemented Rust WASM Contracts, but instead, taking cues from EIP Account Abstraction, **a relayer gets paid to execute a Javascript smart contract** , these contracts compiled to JEXL or QuickJS WASM Containers.
+Ancon Protocol does support indexing features, but one feature we recently cut off was mutable DAG blocks using PUT, because we required full verifiable signatures. In reimagining the problem from another point of view, if we take onchain events as the ultimate proof of truth, we can mutate DAGs similar to the previously implemented Rust WASM Contracts, but instead, taking cues from EIP Account Abstraction, **a relayer gets paid to execute a Javascript smart contract**, these contracts compiled to JEXL or QuickJS WASM Containers.
 
 The result is a signed output, verifiable both offchain and onchain (if used with Ancon Protocol offchain signatures or EIP-3668).
-
 
 ## Use Case
 
@@ -37,13 +70,6 @@ A DAG Chain redux is then made of:
 - The state is stored in an Ancon DAG Node, which internal Merkle Tree makes it ICS23 Proof ready, or using an EIP-3668 request response, be available for secure offchain requests.
 - Cycles repeats once again
 
-## Alternatives
-
-- Trueblocks
-- The Graph
-- Do your indexing and merge
-
 ## Authors
 
-Rogelio Morrell, Kendall Kant, for Industrias de Firmas Electronicas SA , 2022. 
-
+Rogelio Morrell, Ricardo Menotti for Industrias de Firmas Electronicas SA , 2022.
