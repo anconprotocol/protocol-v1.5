@@ -40,11 +40,15 @@ Besides storage and computation a succesfull data union must include; Data index
 
 ## Prior Work
 
-There are already open source indexing tools like The Graph and TrueBlocks, which takes enough care of post processing of onchain events.
-
-Ancon Protocol does support indexing features, but one feature we recently cut off was mutable DAG blocks using PUT, because we required full verifiable signatures. In reimagining the problem from another point of view, if we take onchain events as the ultimate proof of truth, we can mutate DAGs similar to the previously implemented Rust WASM Contracts, but instead, taking cues from EIP Account Abstraction, **a relayer gets paid to execute a Javascript smart contract**, these contracts compiled to JEXL or QuickJS WASM Containers.
-
-The result is a signed output, verifiable both offchain and onchain (if used with Ancon Protocol offchain signatures or EIP-3668).
+TODO
+https://github.com/ipfs/js-blockstore-core
+https://jlongster.com/future-sql-web
+https://github.com/libp2p/js-libp2p
+https://github.com/ipld/js-dag-json
+https://github.com/multiformats/js-multiformats
+https://developers.google.com/web/tools/workbox
+https://blog.cloudflare.com/using-hpke-to-encrypt-request-payloads/
+https://github.com/rhashimoto/wa-sqlite/blob/master/README.md
 
 ## Use Case
 
