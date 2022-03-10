@@ -20,11 +20,11 @@ However we left some pendings protocol features for later, which we assume was n
 
 ### Distributed Data Query
 
-Previously, we propose Dag-chain-redux as a way to consolidate indexing using smart contracts events. While this will work in server side scenarios it does not cover client side or light client nodes like browsers or smartphones. It also does not have any compatability with for example enterprise ethereum trusted offchain computing specification.
+Previously, we propose Dag-chain-redux as a way to consolidate indexing using smart contracts events. While this will work in server side scenarios it does not cover client side or light client nodes like browsers or smartphones. It also does not have any compatibility with for example enterprise ethereum trusted offchain computing specification.
 
 ### Incomplete Dag syncronization
 
-Currently Ancon Protocol v1 only synchronizes with IPFS pinning services. While Ancon Protocol is compatible with GraphGync it will only work for server side scenarios because the current GraphSync is only available with Go Language SDKs.
+Currently Ancon Protocol v1 only synchronizes with IPFS pinning services. While Ancon Protocol is compatible with Graphsync it will only work for server side scenarios because the current Graphsync is only available with Go Language SDKs.
 
 ### Partial suppport for offchain computation
 
@@ -33,19 +33,19 @@ Idealy a complete feature will have to include QuickJs compile WASM artifacts an
 
 ### Dag Indexing, publishing and privacy
 
-Besides storage and computation a succesful data union must include; Data indexing, Data Publishing, Security and Privacy controls which are nice to haves to the core protocol features.
+Besides storage and computation a succesful data union must include: Data indexing, Data Publishing, Security and Privacy controls which are nice to haves to the core protocol features.
 
 ## Prior Work
 
 TODO
-https://github.com/ipfs/js-blockstore-core
-https://jlongster.com/future-sql-web
-https://github.com/libp2p/js-libp2p
-https://github.com/ipld/js-dag-json
-https://github.com/multiformats/js-multiformats
-https://developers.google.com/web/tools/workbox
-https://blog.cloudflare.com/using-hpke-to-encrypt-request-payloads/
-https://github.com/rhashimoto/wa-sqlite/blob/master/README.md
+- https://github.com/ipfs/js-blockstore-core
+- https://jlongster.com/future-sql-web
+- https://github.com/libp2p/js-libp2p
+- https://github.com/ipld/js-dag-json
+- https://github.com/multiformats/js-multiformats 
+- https://developers.google.com/web/tools/workbox
+- https://blog.cloudflare.com/using-hpke-to-encrypt-request-payloads/
+- https://github.com/rhashimoto/wa-sqlite/blob/master/README.md
 
 ## Use Case
 
