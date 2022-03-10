@@ -1,5 +1,5 @@
 # Ancon Protocol v1.5
-### Distributed Data Client with Verifiable ICS-23 Vector Commitment Proof
+### Distributed Data Client with Verifiable ICS-23 Vector Commitment Proof over any store
 
 ## Abstract
 
@@ -35,17 +35,32 @@ Idealy a complete feature will have to include QuickJs compile WASM artifacts an
 
 Besides storage and computation a succesful data union must include: Data indexing, Data Publishing, Security and Privacy controls which are nice to haves to the core protocol features.
 
+### Deprecating IAVL
+
+As per [ADR-040](https://docs.cosmos.network/master/architecture/adr-040-storage-and-smt-state-commitments.html), Cosmos is migrating towards SMT (Sparse Merkle Trees) using [Celestia SMT](https://github.com/celestiaorg/smt). This change makes newer ICS23 Proof storage DB agnostic.
+
 ## Prior Work
 
-TODO
-- https://github.com/ipfs/js-blockstore-core
-- https://jlongster.com/future-sql-web
-- https://github.com/libp2p/js-libp2p
-- https://github.com/ipld/js-dag-json
-- https://github.com/multiformats/js-multiformats 
-- https://developers.google.com/web/tools/workbox
-- https://blog.cloudflare.com/using-hpke-to-encrypt-request-payloads/
-- https://github.com/rhashimoto/wa-sqlite/blob/master/README.md
+V1.5 takes major inspiration from [Static torrent website with peer-to-peer queries over BitTorrent on 2M records](https://boredcaveman.xyz/post/0x2_static-torrent-website-p2p-queries.html) and [A future for SQL on the web](https://jlongster.com/future-sql-web).
+
+## Ancon Protocol v1.5 reference implementation
+
+### Implement Ancon DataClientDB
+
+- Implement a concrete Typescript class from [blockstore-core](https://github.com/ipfs/js-blockstore-core) interface, using  [AbsurdSQL](https://github.com/jlongster/absurd-sql). This blockstore becomes a fsstore-like storage, with [libp2p](https://github.com/libp2p/js-libp2p)  as networking layer and [JS IPLD](https://github.com/ipld/js-dag-json) and [multiformats](https://github.com/multiformats/js-multiformats) as DAG block  layer.
+
+- Implement permanent sync to Arweave, Filecoin and  Subspace using $ANCON + cross chain liquidiity bridges
+
+- Implement SQLite queries over libp2p with gas    consumption and estimation
+
+### Implement local keyring
+
+### Implement incentivized network for relayers
+
+### Ancon Node IAVL/Celestia as a chain (Tendermint/Gossamer)
+
+### Support HPKE
+
 
 ## Use Case
 
@@ -57,4 +72,5 @@ todo
 
 ## Authors
 
-Rogelio Morrell, Ricardo Menotti for Industrias de Firmas Electronicas SA , 2022.
+Rogelio Morrell,Kendall Kant,Ricardo Menotti for Industrias de Firmas Electronicas SA , 2022.
+  
