@@ -1,5 +1,5 @@
 # Ancon Protocol v1.5
-### Distributed Data Client with Verifiable ICS-23 Vector Commitment Proof over any store
+## Decentralized Verifiable Data Client 
 
 ## Abstract
 
@@ -47,7 +47,7 @@ V1.5 takes major inspiration from [Static torrent website with peer-to-peer quer
 
 ### Implement Ancon DataClientDB
 
-- Implement a concrete Typescript class from [blockstore-core](https://github.com/ipfs/js-blockstore-core) interface, using  [AbsurdSQL](https://github.com/jlongster/absurd-sql). This blockstore becomes a fsstore-like storage, with [libp2p](https://github.com/libp2p/js-libp2p)  as networking layer and [JS IPLD](https://github.com/ipld/js-dag-json) and [multiformats](https://github.com/multiformats/js-multiformats) as DAG block  layer.
+- Implement a concrete Typescript class from [blockstore-core](https://github.com/ipfs/js-blockstore-core) interface, using  [AbsurdSQL](https://github.com/jlongster/absurd-sql). This blockstore becomes a fsstore-like storage, with [Waku](https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/)  as networking layer and [JS IPLD](https://github.com/ipld/js-dag-json) and [multiformats](https://github.com/multiformats/js-multiformats) as DAG block  layer.
 
 - Implement permanent sync to Arweave, Filecoin and  Subspace using $ANCON + cross chain liquidiity bridges
 
