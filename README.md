@@ -7,7 +7,7 @@ This document contains a proposal for managing the diverse set of technologies r
 
 It describes separating Ancon Protocol v1.0 into layers, which separate concerns and aspects such as consensus and proofs, storage and data, and computation and jobs.
 
-We will explain the next version of the protocol, which includes removing the dependency of GraphSync, incorporating SQLite APIs, Indexed DB, VFS and Waku (a libp2p library). Additionally we will include separating the Dag Storage Nodes, Indexers and Merkle Trees consensus in Tendermint or Polkadot.
+We will explain the next version of the protocol, which includes removing the dependency of Graphsync, incorporating SQLite APIs, Indexed DB, VFS and Waku (a libp2p library). Additionally we will include separating the Dag Storage Nodes, Indexers and Merkle Trees consensus in Tendermint or Polkadot.
 
 ## Problem
 
@@ -43,7 +43,7 @@ As per [ADR-040](https://docs.cosmos.network/master/architecture/adr-040-storage
 
 ## Prior Work
 
-V1.5 takes major inspiration from [Static torrent website with peer-to-peer queries over BitTorrent on 2M records](https://boredcaveman.xyz/post/0x2_static-torrent-website-p2p-queries.html) and [A future for SQL on the web](https://jlongster.com/future-sql-web). Also we will take ideas from [Datasette](https://datasette.io/) and is publishing feature.
+V1.5 takes major inspiration from [Static torrent website with peer-to-peer queries over BitTorrent on 2M records](https://boredcaveman.xyz/post/0x2_static-torrent-website-p2p-queries.html) and [A future for SQL on the web](https://jlongster.com/future-sql-web). Also we will take ideas from [Datasette](https://datasette.io/) publishing feature.
 
 ## Ancon Protocol v1.5 - Javascript reference implementation
 
