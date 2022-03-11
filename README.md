@@ -51,7 +51,7 @@ V1.5 takes major inspiration from [Static torrent website with peer-to-peer quer
 
 - Implement permanent sync to Arweave, Filecoin and  Subspace using $ANCON + cross chain liquidiity bridges
 
-- Implement SQLite queries over libp2p with gas    consumption and estimation
+- Implement SQLite queries  with gas    consumption and estimation
 
 ### Implement local keyring
 
