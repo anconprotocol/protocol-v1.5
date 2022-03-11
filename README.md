@@ -5,7 +5,7 @@
 
 This document contains a proposal for managing the diverse set of technologies require to implement decentralize data unions using Ancon Protocol.
 
-We will explain the next version of the protocol, which includes removing the dependency of GraphSync, incorporating SQLlite APIs, Indexed DB, VFS and libp2p. Additionally we will include separating the Dag Storage Nodes, Indexers and Merkle Trees consensus in Tendermint or Polkadot.
+We will explain the next version of the protocol, which includes removing the dependency of GraphSync, incorporating SQLite APIs, Indexed DB, VFS and libp2p. Additionally we will include separating the Dag Storage Nodes, Indexers and Merkle Trees consensus in Tendermint or Polkadot.
 
 ## Problem
 
@@ -29,7 +29,7 @@ Currently Ancon Protocol v1 only synchronizes with IPFS pinning services. While 
 ### Partial suppport for offchain computation
 
 Ancol Protocol v1 + dag-chain-redux in its current iteration is implemented using JEXL which is an expression language for javascript.
-Idealy a complete feature will have to include QuickJs compile WASM artifacts and will have to be run in a specific client side node.
+IdeaLly a complete feature will have to include QuickJs compile WASM artifacts and will have to be run in a specific client side node.
 
 ### Dag Indexing, publishing and privacy
 
@@ -49,15 +49,30 @@ V1.5 takes major inspiration from [Static torrent website with peer-to-peer quer
 
 - Implement a concrete Typescript class from [blockstore-core](https://github.com/ipfs/js-blockstore-core) interface, using  [AbsurdSQL](https://github.com/jlongster/absurd-sql). This blockstore becomes a fsstore-like storage, with [Waku](https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/)  as networking layer and [JS IPLD](https://github.com/ipld/js-dag-json) and [multiformats](https://github.com/multiformats/js-multiformats) as DAG block  layer.
 
-- Implement permanent sync to Arweave, Filecoin and  Subspace using $ANCON + cross chain liquidiity bridges
+- Implement permanent sync to Arweave, Filecoin and  Subspace using $ANCON + cross chain liquidity bridges
 
 - Implement SQLite queries  with gas    consumption and estimation
 
+- Implement block sync with Waku (ideas: [Litestream](https://litestream.io/))
+
+- There are two data layers: a DAG layer (immutable) and a DB layer (read-only), where (a) Any insert or updates are signed and created as DAG blocks, and a linkeable and versioned JSON data model is stored in the DB Layer. (b) Read-only queries are executed on DB layer (c) GraphQL is used as execution layer and lower level  QuickJS Smart Contracts for other use cases.
+
 ### Implement local keyring
+
+
+-  Manages account keys, DID compatible with Ed25519 crypto suite
+
 
 ### Implement incentivized network for relayers
 
+- Relayers will in v1.5 query the state commitments from Ancon Node chain, with the incentives  ocurring when posting root blocks from Ancon Node chain to Ancon relayers
+
+
 ### Ancon Node IAVL/Celestia as a chain (Tendermint/Gossamer)
+
+- We propose, a gasless chain, that only stores state commitments separate from the state storage, taking inspiration from  ADR-040. 
+- DAG blocks commit transactions and relayers submit roots to protocol smart contracts
+
 
 ### Support HPKE
 
