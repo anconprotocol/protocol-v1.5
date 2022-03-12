@@ -43,7 +43,7 @@ As per [ADR-040](https://docs.cosmos.network/master/architecture/adr-040-storage
 
 ## Prior Work
 
-V1.5 takes major inspiration from [Static torrent website with peer-to-peer queries over BitTorrent on 2M records](https://boredcaveman.xyz/post/0x2_static-torrent-website-p2p-queries.html) and [A future for SQL on the web](https://jlongster.com/future-sql-web). Also we will take ideas from [Datasette](https://datasette.io/) publishing feature.
+V1.5 takes major inspiration from [Foundation DB](https://apple.github.io/foundationdb/layer-concept.html), [Static torrent website with peer-to-peer queries over BitTorrent on 2M records](https://boredcaveman.xyz/post/0x2_static-torrent-website-p2p-queries.html) and [A future for SQL on the web](https://jlongster.com/future-sql-web). Also we will take ideas from [Datasette](https://datasette.io/) publishing feature.
 
 ## Ancon Protocol v1.5 - Javascript reference implementation
 
