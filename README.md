@@ -79,7 +79,7 @@ V1.5 takes major inspiration from [Foundation DB](https://apple.github.io/founda
 - Messages encrypted with recently announced `HPKE` for secure forward secrecy.
 - Add BBS+ for selective disclosure
 
-## Ancon Data Decentralized Apps (Data DApps) - Reference implementation
+## Ancon Verifiable Document DApp - Reference implementation
 
 This feature is left as a nice to have, it mostly focuses on creating Docker container like dapps, using the DAG Chain Redux either with Ancon Protocol v1.0 or v1.5 Data Agent Library.
 
