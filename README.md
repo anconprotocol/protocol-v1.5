@@ -45,7 +45,7 @@ As per [ADR-040](https://docs.cosmos.network/master/architecture/adr-040-storage
 
 V1.5 takes major inspiration from [Foundation DB](https://apple.github.io/foundationdb/layer-concept.html), [Static torrent website with peer-to-peer queries over BitTorrent on 2M records](https://boredcaveman.xyz/post/0x2_static-torrent-website-p2p-queries.html) and [A future for SQL on the web](https://jlongster.com/future-sql-web). Also we will take ideas from [Datasette](https://datasette.io/) publishing feature.
 
-## Ancon Protocol v1.5 - Javascript reference implementation
+## Ancon Protocol v1.5 - Reference implementation
 
 ### Implementing Ancon Data Agent Library
 
@@ -63,7 +63,6 @@ V1.5 takes major inspiration from [Foundation DB](https://apple.github.io/founda
 
 -  Manages account keys, DID compatible with Ed25519 crypto suite
 
-
 ### Implement incentivized network for relayers
 
 - Relayers will in v1.5 query the state commitments from Ancon Node chain, with the incentives  ocurring when posting root blocks from Ancon Node chain to Ancon relayers
@@ -80,6 +79,42 @@ V1.5 takes major inspiration from [Foundation DB](https://apple.github.io/founda
 - Messages encrypted with recently announced `HPKE` for secure forward secrecy.
 - Add BBS+ for selective disclosure
 
+## Ancon Data Decentralized Apps (Data DApps) - Reference implementation
+
+This feature is left as a nice to have, it mostly focuses on creating Docker container like dapps, using the DAG Chain Redux either with Ancon Protocol v1.0 or v1.5 Data Agent Library.
+
+### What is a Verifiable Document DApp
+
+A Verifiable Document DApp is a JSON schema similar to an ERC-721 Metadata and a Verified Credential / Presentation, in this case a `Verifiable Document`, used to create vendored (kiosk-like) dapps. A JSON  defines the details and app metadata, signed as a payload and stored as a DAG block (DID verifiable).
+
+```javascript
+{
+   name: "Selling 5 lottery tickets for Sunday 13 March 2022",
+   description: "5 lottery tickets of # 55",
+   link: "https://tensta.did.pa/v0/file/baguqeerar56ywt7p3qbbf6wiqgja5ybvkblz4wx37vyybthr2jl65d657jha/",
+   service: "urn:dapp.ancon.did.pa:lottery"
+}
+```
+
+Where `link` contains the data and `service` the dapp that renders the data dapp. The Data Dapp must implement the following interface:
+
+1. `async fetchData()`, gets the link metadata
+2. `async renderServiceTemplate()`, gets the UI template for the specific service
+
+UI templates must be contained in an HTML component, similar to a VueJS component which contains HTML, Code and Stylesheets. Recommendation is to create Verifiable Document DApps per user flow (Eg Enroll User, Swap token, Mint NFT).
+
+DApp Provenance information can be display using the DAG Block response signature.
+
+A Verifiable Document DApp must always start user interaction from a QR or shareable link.
+
+#### Implementing DAG Chain Redux for Data DApps
+
+Verifiable Document DApps requires a V1.0 server side DAG Chain redux handler or a V1.5 Data Agent Library, this component maintains a DAG Chain Redux using web workers/server side code.
+
+- `Web 3.0 Onchain events ---> DAG Chain Redux indexer` (V1.0 server side code or V1.5 Web Workers)
+
+Where the reducer is implemented as JEXL or a QuickJS Smart Contract (V1.0). For V1.5 Data Library, SQLite engine with GraphQL interface must be used as it takes care of data sync, publishing and security.
+
 
 
 ## Use Case
@@ -91,7 +126,7 @@ V1.5 takes major inspiration from [Foundation DB](https://apple.github.io/founda
 
 ### Next Generation NFT Marketplaces
 
-- Allows for Ancon Protocol v2.0 - Content Provenance and Authenticity to be fulfilled, by creating proof of android or ios with SafetyNet or DeviceCheck, maintaing access control and origin signing of content, like images, audios or videos creating with smartphones or IoT devices.
+- Allows for Ancon Protocol v2.0 - Content Provenance and Authenticity to be fulfilled, by creating proof of android or ios with SafetyNet or DeviceCheck, maintaining access control and origin signing of content, like images, audios or videos created with smartphones or IoT devices.
 
 ### Data Unions
 
