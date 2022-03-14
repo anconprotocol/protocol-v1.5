@@ -31,7 +31,7 @@ Currently Ancon Protocol v1 only synchronizes with IPFS pinning services. While 
 ### Partial suppport for offchain computation
 
 Ancol Protocol v1 + [DAG Chain Redux](https://github.com/anconprotocol/dag-chain-redux) in its current iteration is implemented using JEXL which is an expression language for javascript.
-IdeaLly a complete feature will have to include QuickJS compile WASM artifacts and will have to be run in a specific client side node.
+Ideally a complete feature will have to include QuickJS compile WASM artifacts and will have to be run in a specific client side node.
 
 ### Dag Indexing, publishing and privacy
 
